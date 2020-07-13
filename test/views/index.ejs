@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="eS">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    
+  
+  <nav class="navbar navbar-dark bg-dark mb-4">
+    <a class="text-center navbar-brand" href="#">CREACIÓN DE REGISTRO</a>
+  </nav>
+
+
+<div class="container">
+
+  <div class="row">
+    <!--FORM-->
+    <div class="col-md-5">
+      <h1>Formulario de registro</h1>
+      <form action="/add" method="post" class="form-register" >
+          <div class="contenedor-inputs">
+              <input type="text" id="nombre" name="name" placeholder="Nombre" class="inputcss">
+              <input type="text" id="apellidos" name="lastname" placeholder="Apellidos" class="inputcss">
+              <input type="email" id="correo" name="email" placeholder="Correo" class="inputcss">
+              <input type="password" id="pass" name="password" placeholder="Contraseña" class="inputcss">
+              
+              <input type="submit" value="Registrar" class="btn-enviar">
+  
+          </div>
+      </form> 
+  </div>
+
+    <!-- LIST -->
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>E-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <% for(var i=0; i < tasks.length; i++) { %>
+
+            
+            <tr>
+              <td><%= i + 1%></td>
+              <td><%= tasks[i].name %></td>
+              <td><%= tasks[i].lastname %></td>
+              <td><%= tasks[i].email %></td>
+              <td>
+                
+                <a href="/delete/<%= tasks[i]._id %>"
+                  class="btn btn-danger">
+                  Delete
+                </a>
+               
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
